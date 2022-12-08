@@ -51,3 +51,16 @@ def per_paragraph_lines(input_file):
         paragraphs.append(current_paragraph)
 
     return paragraphs
+
+
+def to_digit_array(input_file):
+    """
+    Read the input file into a 2D array of single-digit integers
+    """
+    data = []
+    for row in to_str_lines(input_file):
+        row_digits = []
+        for char in row.strip():
+            row_digits.append(int(char))
+        data.append(row_digits)
+    return data
