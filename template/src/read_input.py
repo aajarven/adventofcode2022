@@ -2,6 +2,8 @@
 AoC input reading
 """
 
+import re
+
 
 def to_str(input_file):
     """
@@ -64,3 +66,16 @@ def to_digit_array(input_file):
             row_digits.append(int(char))
         data.append(row_digits)
     return data
+
+
+def extract_ints_per_line(input_file):
+    """
+    Return only integers from the file, ignoring all other content.
+
+    The ints are returned in a list containing a list of ints found on each line.
+    """
+    ints = []
+    for line in to_str_lines(input_file):
+        row_ints = [int(int_) for int_ in re.findall(r"-?\d+", line)]
+        ints.append(row_ints)
+    return ints
